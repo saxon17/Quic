@@ -1,0 +1,59 @@
+
+Error: class uri 'gevent' invalid or not found: 
+
+[Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/gunicorn/util.py", line 142, in load_class
+    mod = import_module('.'.join(components))
+  File "/usr/local/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/usr/local/lib/python2.7/site-packages/gunicorn/workers/ggevent.py", line 22, in <module>
+    raise RuntimeError("You need gevent installed to use this worker.")
+RuntimeError: You need gevent installed to use this worker.
+]
+
+[2016-10-28 22:41:33 +0000] [31169] [INFO] Starting gunicorn 19.6.0
+[2016-10-28 22:41:33 +0000] [31169] [INFO] Listening at: http://0.0.0.0:7777 (31169)
+[2016-10-28 22:41:33 +0000] [31169] [INFO] Using worker: sync
+[2016-10-28 22:41:33 +0000] [31174] [INFO] Booting worker with pid: 31174
+[2016-10-28 23:12:24 +0000] [31214] [INFO] Starting gunicorn 19.6.0
+[2016-10-28 23:12:24 +0000] [31214] [INFO] Listening at: http://127.0.0.1:8888 (31214)
+[2016-10-28 23:12:24 +0000] [31214] [INFO] Using worker: sync
+[2016-10-28 23:12:24 +0000] [31219] [INFO] Booting worker with pid: 31219
+[2016-10-29 02:42:48 +0000] [31259] [INFO] Starting gunicorn 19.6.0
+[2016-10-29 02:42:48 +0000] [31259] [ERROR] Connection in use: ('127.0.0.1', 7777)
+[2016-10-29 02:42:48 +0000] [31259] [ERROR] Retrying in 1 second.
+[2016-10-29 02:42:49 +0000] [31259] [ERROR] Connection in use: ('127.0.0.1', 7777)
+[2016-10-29 02:42:49 +0000] [31259] [ERROR] Retrying in 1 second.
+[2016-10-29 02:42:50 +0000] [31259] [ERROR] Connection in use: ('127.0.0.1', 7777)
+[2016-10-29 02:42:50 +0000] [31259] [ERROR] Retrying in 1 second.
+[2016-10-29 02:42:51 +0000] [31259] [ERROR] Connection in use: ('127.0.0.1', 7777)
+[2016-10-29 02:42:51 +0000] [31259] [ERROR] Retrying in 1 second.
+[2016-10-29 02:42:52 +0000] [31259] [ERROR] Connection in use: ('127.0.0.1', 7777)
+[2016-10-29 02:42:52 +0000] [31259] [ERROR] Retrying in 1 second.
+[2016-10-29 02:42:53 +0000] [31259] [ERROR] Can't connect to ('127.0.0.1', 7777)
+
+Error: class uri 'gevent' invalid or not found: 
+
+[Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/gunicorn/util.py", line 142, in load_class
+    mod = import_module('.'.join(components))
+  File "/usr/local/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/usr/local/lib/python2.7/site-packages/gunicorn/workers/ggevent.py", line 22, in <module>
+    raise RuntimeError("You need gevent installed to use this worker.")
+RuntimeError: You need gevent installed to use this worker.
+]
+
+
+Error: class uri 'gevent' invalid or not found: 
+
+[Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/gunicorn/util.py", line 142, in load_class
+    mod = import_module('.'.join(components))
+  File "/usr/local/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+  File "/usr/local/lib/python2.7/site-packages/gunicorn/workers/ggevent.py", line 22, in <module>
+    raise RuntimeError("You need gevent installed to use this worker.")
+RuntimeError: You need gevent installed to use this worker.
+]
+

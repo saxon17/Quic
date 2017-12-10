@@ -1,0 +1,242 @@
+{#<h1>Home</h1>#}
+{##}
+{##}
+{#<p> This is  home.</p>#}
+{#<h1>{{ Basedir }}</h1>#}
+{#<h3>{{ Temp }}</h3>#}
+{#<a href="/blog/">Blog</a>#}
+{#{% if user.is_authenticated %}#}
+{#    <a href={% url 'logout' %}> Logout</a>#}
+{#{%else%}#}
+{##}
+{#    <a href="accounts/login/?next={{ request.path }}">Login</a>#}
+{##}
+{#{% endif %}#}
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block body %}
+
+
+
+
+{#    <div class="navbar navbar-inverse navbar-fixed-top">#}
+{#      <div class="container">#}
+{#        <div class="navbar-header">#}
+{#          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">#}
+{#            <span class="icon-bar"></span>#}
+{#            <span class="icon-bar"></span>#}
+{#            <span class="icon-bar"></span>#}
+{#          </button>#}
+{#          <a class="logo" href="index.html"><img src="{{ asset('index_static/img/logo.png') }}" alt="Logo"></a>#}
+{#        </div>#}
+{#        <div class="navbar-collapse collapse">#}
+{#          <ul class="nav navbar-nav navbar-right">#}
+{#            <li><a href="#pricing" class="scroll">Pricing</a></li>#}
+{#            <li><a href="#">Sign in</a></li>#}
+{#          </ul>#}
+{#        </div><!--/.navbar-collapse -->#}
+{#      </div>#}
+{#    </div>#}
+
+    <header>
+      <div class="container">
+{#        <div class="row">#}
+{#          <div class="col-xs-6">#}
+{#            <a href="index.html"><img src="{{ asset('index_static/img/logo.png') }}" alt="Logo"></a>#}
+{#          </div>#}
+{#          <div class="col-xs-6 signin text-right navbar-nav">#}
+{#            <a href="#pricing" class="scroll">Pricing</a>&nbsp; &nbsp;<a href="#">Sign in</a>#}
+{#          </div>#}
+{#        </div>#}
+
+        <div class="row header-info">
+          <div class="col-sm-10 col-sm-offset-1 text-center">
+            <h1 class="wow fadeIn">Meet you at the Next Second</h1>
+            <br />
+            <p class="lead wow fadeIn" data-wow-delay="0.5s">Being single doesn't mean that you don't know anything about love. <br>
+            Before finding the right people, the only need to do is to make yourself good enough.</p>
+            <br />
+
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                <div class="row">
+                  <div class="col-xs-6 text-right wow fadeInUp" data-wow-delay="1s">
+                    <a href="#be-the-first" class="btn btn-secondary btn-lg scroll">登录</a>
+                  </div>
+                  <div class="col-xs-6 text-left wow fadeInUp" data-wow-delay="1.4s">
+                    <a href="#invite" class="btn btn-primary btn-lg scroll">获取邀请码</a>
+                  </div>
+                </div><!--End Button Row-->
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="mouse-icon hidden-xs">
+				<div class="scroll"></div>
+			</div>
+
+    <section id="be-the-first" class="pad-xl">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 text-center margin-30 wow fadeIn" data-wow-delay="0.6s">
+            <h2>Be the first</h2>
+            <p class="lead">
+                加入之前，请你做一个自我介绍。姓名、年龄、家乡、爱好...
+            </p>
+          </div>
+        </div>
+
+        <div class="iphone wow fadeInUp" data-wow-delay="1s">
+	        <img src="{% static 'imgs/iphone.png' %}">
+        </div>
+      </div>
+    </section>
+
+    <section id="main-info" class="pad-xl">
+	    <div class="container">
+		    <div class="row">
+			    <div class="col-sm-4 wow fadeIn" data-wow-delay="0.4s">
+				    <hr class="line purple">
+				    <h3>男神女神</h3>
+				    <p>目前在本站注册的用户,你们可以这里互相点赞,互赞后系统会发送对方的联系方式!</p>
+			    </div>
+			    <div class="col-sm-4 wow fadeIn" data-wow-delay="0.8s">
+				    <hr  class="line blue">
+				    <h3>找同乡</h3>
+				    <p>在NS可以查询到与你同乡的研究生哦</p>
+			    </div>
+			    <div class="col-sm-4 wow fadeIn" data-wow-delay="1.2s">
+				    <hr  class="line yellow">
+				    <h3>社区</h3>
+				    <p>如果你想要结伴回家、郊游,或者你愿意赠送或者提供顺风车,那么你可以在这里发起留言。有伴同行不管是在经济上还是感觉上,都可以有不同的体验吧。</p>
+			    </div>
+		    </div>
+	    </div>
+    </section>
+
+
+    <!--Pricing-->
+    <section id="pricing" class="pad-lg">
+      <div class="container">
+        <div class="row margin-40">
+          <div class="col-sm-8 col-sm-offset-2 text-center">
+            <h2 class="white">Pricing</h2>
+            <p class="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra orci ut.</p>
+          </div>
+        </div>
+
+        <div class="row margin-50">
+
+          <div class="col-sm-4 pricing-container wow fadeInUp" data-wow-delay="1s">
+            <br />
+            <ul class="list-unstyled pricing-table text-center">
+    					<li class="headline"><h5 class="white">Personal</h5></li>
+    					<li class="price"><div class="amount">$5<small>/m</small></div></li>
+    					<li class="info">2 row section for you package information. You can include all details or icons</li>
+    					<li class="features first">Up To 25 Projects</li>
+    					<li class="features">10GB Storage</li>
+    					<li class="features">Other info</li>
+    					<li class="features last btn btn-secondary btn-wide"><a href="#">Get Started</a></li>
+    				</ul>
+          </div>
+
+          <div class="col-sm-4 pricing-container wow fadeInUp" data-wow-delay="0.4s">
+            <ul class="list-unstyled pricing-table active text-center">
+    					<li class="headline"><h5 class="white">Professional</h5></li>
+    					<li class="price"><div class="amount">$12<small>/m</small></div></li>
+    					<li class="info">2 row section for you package information. You can include all details or icons</li>
+    					<li class="features first">Up To 25 Projects</li>
+    					<li class="features">10GB Storage</li>
+    					<li class="features">Other info</li>
+    					<li class="features">Other info</li>
+    					<li class="features last btn btn-secondary btn-wide"><a href="#">Get Started</a></li>
+    				</ul>
+          </div>
+
+          <div class="col-sm-4 pricing-container wow fadeInUp" data-wow-delay="1.3s">
+            <br />
+            <ul class="list-unstyled pricing-table text-center">
+    					<li class="headline"><h5 class="white">Business</h5></li>
+    					<li class="price"><div class="amount">$24<small>/m</small></div></li>
+    					<li class="info">2 row section for you package information. You can include all details or icons</li>
+    					<li class="features first">Up To 25 Projects</li>
+    					<li class="features">10GB Storage</li>
+    					<li class="features">Other info</li>
+    					<li class="features last btn btn-secondary btn-wide"><a href="#">Get Started</a></li>
+    				</ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section id="invite" class="pad-lg light-gray-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 text-center">
+            <i class="fa fa-envelope-o margin-40"></i>
+            <h2 class="black">Get the invite</h2>
+            <br />
+            <p class="black">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra orci ut.</p>
+            <br />
+
+            <div class="row">
+              <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                <form role="form">
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Email">
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-lg">Request Invite</button>
+                </form>
+              </div>
+            </div><!--End Form row-->
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="press" class="pad-sm">
+      <div class="container">
+
+        <div class="row margin-30 news-container">
+          <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 wow fadeInLeft" data-wow-delay="0.8s">
+            <a href="#" target="_blank">
+            <img class="news-img pull-left" src="{% static 'imgs/press-01.jpg'%}" alt="Tech Crunch">
+            <p class="black">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra orci ut.<br />
+            <small><em>Tech Crunch - January 15, 2015</em></small></p>
+            </a>
+          </div>
+        </div>
+
+        <div class="row margin-30 news-container">
+          <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 wow fadeInLeft" data-wow-delay="1.2s">
+            <a href="#" target="_blank">
+            <img class="news-img pull-left" src="{% static 'imgs/press-02.jpg' %}" alt="Forbes">
+            <p class="black">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra orci ut. <br />
+            <small><em>Forbes - Feb 25, 2015</em></small></p>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+ <footer class="container-fluid text-center">
+  <p>Copyright © 2016 Saxon All Rights Reserved.</p>
+</footer>
+
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% load account %}
+{% user_display user as user_display %}
+{% load i18n %}{% autoescape off %}
+
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+
+你好,这一封来自NextSecond.cn的邮件!
+
+    首先,非常感谢您能够参加 NextSencond的内测。
+
+    您收到这封邮件是因为,您在注册时填写了找回密码绑定邮箱。(请牢记您登陆NextSecond.cn的用户名:{{ user_display }} )
+    请确认目前这个邮箱是您本人使用,点击一下链接完成绑定。
+     {{ activate_url }}
+
+
+{% endblocktrans %}{% endautoescape %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+    注:开发者近期将对头像和信息进行审核,上传本人真实照片有助于您找到更多朋友。(审核不通过该的用户将成为待激活状态)
+
+
+                                                            希望你在NextSecond遇见另一个他/她
+
+                                                                          NextSecond.cn
+                                                                     {% endblocktrans %}

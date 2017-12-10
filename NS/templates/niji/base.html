@@ -1,0 +1,238 @@
+{% load i18n %}
+<!DOCTYPE HTML>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/niji/css/main.css"/>
+    <title>{{ title }}{% if site_name %}-{{ site_name }}{% endif %}</title>
+</head>
+<body>
+{#<h1>Hello world</h1>#}
+<style>
+
+
+
+
+
+
+    /*
+Code snippet by maridlcrmn for Bootsnipp.com
+Follow me on Twitter @maridlcrmn
+*/
+
+.navbar-brand { position: relative; z-index: 2; }
+
+.navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 4px 20px; margin: 10px auto; }
+
+.navbar .navbar-collapse { position: relative; }
+.navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 22px; }
+
+.navbar .nav-collapse { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
+.navbar.navbar-default .nav-collapse { background-color: #f8f8f8; }
+.navbar.navbar-inverse .nav-collapse { background-color: #222; }
+.navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
+.nav-collapse>li { float: right; }
+
+.btn.btn-circle { border-radius: 50px; }
+.btn.btn-outline { background-color: transparent; }
+
+@media screen and (max-width: 767px) {
+    .navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 15px; padding-right: 15px; }
+
+    .navbar .nav-collapse { margin: 7.5px auto; padding: 0; }
+    .navbar .nav-collapse .navbar-form { margin: 0; }
+    .nav-collapse>li { float: none; }
+}
+
+
+</style>
+<nav class="navbar navbar-default">
+        <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'home' %}">瞎喵NextSecond</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-2">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+
+                    {% if user.is_authenticated %}
+
+
+
+
+
+                        <a href=" {% url 'detail' user.id %}">
+                    {% else %}
+                        <a href=" {% url 'account_login' %}">
+                    {% endif %}
+
+                    <span class="glyphicon glyphicon-user "></span> &nbsp;
+                    我的信息
+                    </a>
+
+
+                </li>
+
+                <li class=" ">
+
+                    <a href=" {% url 'nsns' %}">
+                        <span class="glyphicon glyphicon-heart-empty "></span> &nbsp;
+                        男神女神
+                    </a>
+                </li>
+
+
+                <li class=" ">
+
+                    <a href=" {% url 'fellow' %}">
+
+                        <span class="glyphicon glyphicon-search "></span> &nbsp;
+                        找老乡
+                    </a>
+                </li>
+
+
+                <li class=" ">
+
+                    <a href=" /comunity">
+
+
+                        <span class="glyphicon glyphicon-bullhorn "></span> &nbsp;
+                        社区
+                    </a>
+                </li>
+{#                <li><a href="#">News</a></li>#}
+{##}
+{##}
+{#                <li><a href="#">Contact</a></li>#}
+
+{#              <a class="btn btn-default btn-outline btn-circle collapsed" data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Sign in</a>#}
+
+
+
+
+                    {% if user.is_authenticated %}
+
+
+
+                    <li>
+
+                        <a href="{% url 'account_email' %}" class="btn btn-default btn-outline btn-circle collapsed">
+
+
+
+
+                                修改邮箱
+
+
+                        </a>
+
+                    </li>
+
+                        <li>
+                        <a href="{% url 'account_logout' %}" class="btn btn-default btn-outline btn-circle">
+
+                                <i class="glyphicon glyphicon-log-out  "></i>
+
+
+                                注销
+
+
+
+                        </a>
+                        </li>
+                    {% else %}
+                        <li>
+                        <a href=" {% url 'account_login' %}" class="btn btn-default btn-outline btn-circle collapsed">
+
+
+
+                                登录
+
+
+                        </a>
+
+
+                    {% endif %}
+                    </li>
+
+
+
+
+          </ul>
+
+            <form class="nav navbar-form navbar-left" role="search" method="get" action="#">
+
+                        <div class=" form-group">
+                            <input type="text" class=" form-control" name="q" value="" placeholder="省市区或县(找老乡)">
+
+                        </div>
+                        <button type="submit" class="btn btn-default">Search</button>
+
+                    </form>
+{#          <div class="nav navbar-nav nav-collapse collapse" id="nav-collapse2" aria-expanded="false" style="height: 0px;">#}
+{#            <form class="navbar-form navbar-right form-inline" role="form">#}
+{#              <div class="form-group">#}
+{#                <label class="sr-only" for="Email">Email</label>#}
+{#                <input type="email" class="form-control" id="Email" placeholder="Email" autofocus="" required="">#}
+{#              </div>#}
+{#              <div class="form-group">#}
+{#                <label class="sr-only" for="Password">Password</label>#}
+{#                <input type="password" class="form-control" id="Password" placeholder="Password" required="">#}
+{#              </div>#}
+{#              <button type="submit" class="btn btn-success">Sign in</button>#}
+{#            </form>#}
+{#          </div>#}
+        </div><!-- /.navbar-collapse -->
+      </div>
+         </nav>
+
+<div id="main" class="container">
+    <div class="row">
+        <div class="col-lg-8"> <!-- LEFT -->
+            {% block left %}{% endblock %}
+        </div><!-- END LEFT -->
+        <div class="col-lg-4"> <!-- RIGHT -->
+            {% block widgtet_before %}{% endblock %}
+            {% if request.user.is_authenticated %}
+                {% include 'niji/widgets/authenticated_user_panel.html' %}
+            {% else %}
+                {% include 'niji/widgets/visitor_user_panel.html' %}
+            {% endif %}
+            {% include 'niji/widgets/nodes.html' %}
+            {% block widget_after %}{% endblock %}
+        </div><!-- END RIGHT -->
+    </div>
+</div>
+
+<script src="//code.jquery.com/jquery-2.2.0.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        $('#navSearchBtn').click(function(e){
+            e.preventDefault();
+            var keyword = $('#keywordInput').val();
+            if(keyword){
+                window.location = "/search/" + keyword +"/"; // FIXME: Use url tag!
+            }
+        });
+    });
+</script>
+{% block footer_ext %}{% endblock %}
+</body>
+</html>

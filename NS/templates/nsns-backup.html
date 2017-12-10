@@ -1,0 +1,329 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{%  load static %}
+
+
+{#<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>#}
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+{#<link rel="stylesheet" type=" text/css"  href="bootstrap.min.css"/>#}
+
+  <link rel="stylesheet" type=" text/css"  href="{% static 'css/love_heart.css' %}"/>
+
+
+
+ <script src="{% static 'js/jq-min.js' %}"></script>
+  <script src="{% static 'js/water-pull.js' %}"></script>
+  <script>
+
+    $(document).ready(function () {
+
+
+
+
+
+{#              $(".heart").on("click",function(){#}
+{#            $.ajax({#}
+{#                 type:"POST",#}
+{#                 url:"/edit_favorites/",#}
+{#                 data: {#}
+{#                        'want_to_like': $('this').attr("id") // from form#}
+{#                        },#}
+{#                 success: function(){#}
+{#                     alert("<h2>Contact Form Submitted!</h2>") ;#}
+{#                 }#}
+{#            });#}
+{#            return false; //<---- move it here#}
+{#       });#}
+        //获取当前登陆用户已经喜欢的对象
+{#        $(this).addClass("heartAnimation").attr("rel","unlike");#}
+
+
+
+
+
+        //获取所有用户的点赞数
+        $.getJSON( "/jq-service-api/all-id-like-count", function(data, textStatus, jqXHR){
+
+
+            for(var i in data){
+                var userID  =  i.substring(7);
+
+                console.log( 'likeCount'+userID+':'+data[i] );
+
+
+                var  elem = 'likeCount'+userID;
+                console.log('"#'+elem);
+                $('#'+elem).html(data[i]);
+            }
+
+        } );
+
+
+
+
+        $.getJSON( "/jq-service-api/getLoginUserLove", function(data, textStatus, jqXHR){
+
+
+                for(var i in data){
+
+                    console.log( data[i] );
+
+
+                    $('#'+data[i]).addClass("heartAnimation").attr("rel","unlike");
+                }
+
+
+
+                $('#waterfall-container').waterfall();
+            } );
+
+
+
+
+
+
+    });
+
+{##}
+{#     function makelove(){#}
+{#          $(".love").on("click",function(){#}
+{#            alert("The paragraph was clicked.");#}
+{#            });#}
+{##}
+{#        var like_id;#}
+{#        like_id = $(this).attr("data-loveid");#}
+{#         console.log(like_id);#}
+{#         console.log($(this));#}
+{#        $.get('/jq-service-api/want2like/', {"want2like_id": like_id},#}
+{#                function(data){#}
+{#                   $('#like_count').html(data);#}
+{#                   $('#likes').hide();#}
+{#        });#}
+{#    };#}
+{##}
+{##}
+
+
+
+  </script>
+
+    <style>
+      .pin {
+    width: 300px;
+  }</style>
+
+{# send  like message to  server and server save the relationship  "request.user.id - u_id" to database#}
+    <script>
+
+
+    $(document).on('click', '.heart', function(){
+    console.log("press!");
+        var like_id;
+        like_id = $(this).attr("id");
+{#        alert(like_id);#}
+{#        $.get('/jq-service-api/want2like/', {want2like_id: like_id},#}
+{#                function(data){#}
+{#            alert("您已选择喜欢:"+data);#}
+        var stat;
+        stat = $("#"+like_id).attr("rel");
+
+
+        $.ajax({
+                 type:"POST",
+                 url:"/jq-service-api/want2like/",
+                 data: {
+
+                        'want_to_like': like_id
+                        },
+                 success: function(){
+
+                     console.log(stat);
+                     if (stat=="like")
+                     { alert("已取消喜欢!") ;}
+                     else
+                     {alert("已选择喜欢!") ;}
+                 }
+            });
+
+
+{#                   $('#like_count').html(data);#}
+{#                   $('#likes').hide();#}
+
+    });
+
+
+
+
+function change(){
+alert("onclick");
+}
+
+
+
+	$('body').on("click",'.heart',function()
+    {
+{#        A表示要喜欢的ID#}
+
+
+
+
+
+
+    	var A=$(this).attr("id");
+
+
+
+
+
+{#            C是用户被喜欢的次数#}
+        var C=parseInt($("#likeCount"+A).html());
+{#    	$(this).css("background-position","")#}
+
+
+
+{#        rel 表示是否被like#}
+        var D=$(this).attr("rel");
+
+{##}
+{#        console.log('A:'+A);#}
+{##}
+{#        console.log('c:'+C);#}
+{#        console.log('D:'+D);#}
+        if(D === 'like')
+        {
+
+        $("#likeCount"+A).html(C+1);
+{#            jq ajaxxx同步数据库建立喜欢关系#}
+{#            count +1 #}
+
+
+
+
+
+
+
+        $(this).addClass("heartAnimation").attr("rel","unlike");
+
+        }
+        else
+        {
+        $("#likeCount"+A).html(C-1);
+
+            {#            jq ajaxxx取消数据库建立喜欢关系#}
+{#            count -1 #}
+
+
+
+        $(this).removeClass("heartAnimation").attr("rel","like");
+{#        $(this).css("background-position","left");#}
+        }
+
+
+    });
+
+
+
+
+</script>
+
+
+
+
+{% if object_list %}
+{#    <ul>#}
+{#        <h1> All Users Here:</h1>#}
+{##}
+{##}
+{#        {% for f in object_list %}#}
+{#        <li><a href={% url 'detail'  f.id%}>#}
+{##}
+{#            <img src="{{ f.head_pic.url}}">#}
+{#            {{ f.college }}-{{ f.name}}#}
+{##}
+{#                            </a>#}
+{#                      </li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+
+     <div id="waterfall-container" >
+    <!- Should have markups of the list of pins here ->
+          {% for f in object_list %}
+          <ul class="pin list-group">
+              <li class="list-group-item">
+                <a href={% url 'detail'  f.user_id%}>
+                     <img src="{{ f.head_pic.url}}">
+                </a>
+              </li>
+{#              <div class="picDescription">#}
+{#                <p>{{ f.name}}</p>#}
+{#                <p>{{ f.college }}</p>#}
+{##}
+{#            </div>#}
+              <li class="list-group-item">
+
+              <div class="media">
+                  <div class="media-body">
+                       <h5 class="media-heading">{{ f.name}}</h5>
+
+                  <small>{{ f.college }}</small>
+{#                       <small id="like_count">666</small>#}
+
+
+{#                       <button type="button"  data-loveid="{{ f.user.id}}" class="btn btn-default btn-xs love" title="thumb up">#}
+{#                          <span class="glyphicon glyphicon-heart"></span>#}
+{#                      </button>#}
+
+                    </div>
+                  <div class="media-right" >
+
+{#                      <div class="heart heartAnimation" id="like3" rel="unlike"></div>#}
+
+                      <div class="feed" id="feed2">
+                        <p>喜欢？</p>
+{#                          # heart logo#}
+                        <div class="heart" id="{{ f.user.id}}" rel="like"></div>
+                          <div class="likeCount" id="likeCount{{ f.user.id}}">0</div>
+                      </div>
+
+                </div>
+                  </div>
+              </li>
+
+            </ul>
+            {% endfor %}
+    </div>
+
+
+
+
+{#    <div id="waterfall">#}
+{#        {% for f in object_list %}#}
+{#	<div class="picList">#}
+{#		<i class="shareIcon"></i>#}
+{#		<div class="picThumbnail">#}
+{#		<a href={% url 'detail'  f.id%}><img src="{{ f.head_pic.url}}"></a>#}
+{#		</div>#}
+{#		<div class="picDescription">#}
+{#			<p>{{ f.name}}</p>#}
+{#			<p>{{ f.college }}</p>#}
+{##}
+{#        </div>#}
+{#        </div>#}
+{#    </div>#}
+{#            {% endfor %}#}
+
+
+
+
+
+
+
+{% else %}
+    <h3>You don't have any fellows</h3>
+{% endif %}
+
+
+
+
+{% endblock %}

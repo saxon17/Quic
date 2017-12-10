@@ -1,0 +1,117 @@
+{#{% load i18n %}#}
+{#<div class="pagination">#}
+{#    {% if page_obj.has_previous %}#}
+{#        <a href="?{{ page_obj.previous_page_number.querystring }}" class="prev">&lsaquo;&lsaquo; {% trans "previous" %}</a>#}
+{#    {% else %}#}
+{#        <span class="disabled prev">&lsaquo;&lsaquo; {% trans "previous" %}</span>#}
+{#    {% endif %}#}
+{#    {% for page in page_obj.pages %}#}
+{#        {% if page %}#}
+{#            {% ifequal page page_obj.number %}#}
+{#                <span class="current page">{{ page }}</span>#}
+{#            {% else %}#}
+{#                <a href="?{{ page.querystring }}" class="page">{{ page }}</a>#}
+{#            {% endifequal %}#}
+{#        {% else %}#}
+{#            ...#}
+{#        {% endif %}#}
+{#    {% endfor %}#}
+{#    {% if page_obj.has_next %}#}
+{#        <a href="?{{ page_obj.next_page_number.querystring }}" class="next">{% trans "next" %} &rsaquo;&rsaquo;</a>#}
+{#    {% else %}#}
+{#        <span class="disabled next">{% trans "next" %} &rsaquo;&rsaquo;</span>#}
+{#    {% endif %}#}
+{#</div>#}
+
+
+
+{# <h1>{{  page_obj }}</h1>#}
+{% load i18n %}
+<div class="">
+
+
+    <ul class="pager">
+
+
+    {% if page_obj.has_previous %}
+
+
+         <li>
+            <a  id="pre_Page" href="?page={{ page_obj.previous_page_number }}" class="prev">&lsaquo;&lsaquo;
+                {% trans "previous" %}
+            </a>
+
+
+
+
+
+
+
+         </li>
+
+{#        <a href="?page={{ page_obj.previous_page_number.querystring }}" class="prev">&lsaquo;&lsaquo; {% trans "previous" %}</a>#}
+    {% else %}
+{#        <span class="disabled prev">&lsaquo;&lsaquo; {% trans "previous" %}</span>#}
+        <li class="disabled prev">&lsaquo;&lsaquo; {% trans "previous" %}</li>
+    {% endif %}
+
+
+    {% for page in page_obj.pages %}
+        {% if page %}
+            {% ifequal page page_obj.number %}
+                <span class="current page">{{ page }}</span>
+            {% else %}
+                <a  href="?{{ page.querystring }}" class="page">{{ page }}</a>
+            {% endifequal %}
+        {% else %}
+            ...
+        {% endif %}
+    {% endfor %}
+
+
+    {% if page_obj.has_next %}
+{#        <a href="?page={{ page_obj.next_page_number }}" class="next">{% trans "next" %} &rsaquo;&rsaquo;</a>#}
+        <li>
+        <a  id="next_Page" href="?page={{ page_obj.next_page_number }}" class="next">{% trans "next" %} &rsaquo;&rsaquo;</a>
+
+        </li>
+
+    {% else %}
+{#        <span class="disabled next">{% trans "next" %} &rsaquo;&rsaquo;</span>#}
+        <li class="disabled next">{% trans "next" %} &rsaquo;&rsaquo;</li>
+    {% endif %}
+
+    </ul>
+</div>
+
+
+<script>
+    var city = window.location.search;
+    reg = /^\?q=.*/
+
+
+    if (reg.exec(city)) {
+        console.log(city.indexOf('&'));
+        if (city.indexOf('&')!=-1)
+        {
+            city = city.substring(0,city.indexOf('&'))
+        }
+
+{#         $("#next_Page").attr("href",city+"&&page={{ page_obj.previous_page_number }}");#}
+
+         $("#next_Page").attr("href",city+"&&page={{ page_obj.next_page_number }}");
+
+        {% if page_obj.has_previous %}
+         $("#pre_Page").attr("href",city+"&&page={{ page_obj.previous_page_number}}");
+        {% endif %}
+
+
+
+    }
+
+
+</script>
+
+
+
+

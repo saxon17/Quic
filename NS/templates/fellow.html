@@ -1,0 +1,87 @@
+
+
+{% extends 'base.html' %}
+{% load  static %}
+{% block body %}
+
+<link rel="stylesheet" type=" text/css"  href="{% static 'css/fellow_style.css' %}"/>
+{% if fellow_list%}
+{#    <h1> This Fellow Page</h1>#}
+{#    <ul>#}
+{#        <h1> All fellows Here:</h1>#}
+{##}
+{##}
+{#        {% for f in fellow_list %}#}
+{#        <li><a href="/fellow/{{ f.id }}/">#}
+{#            {{ f.id }}-{{ f.name}}#}
+{#        </a> </li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+
+<div>
+    <table class="table-fill">
+        <thead>
+        <tr>
+            <th class="text-left">学号</th>
+            <th class="text-left">姓名</th>
+            <th class="text-left">性别</th>
+            <th class="text-left">家乡</th>
+            <th class="text-left">院系</th>
+            <th class="text-left">专业</th>
+            <th class="text-left">导师</th>
+
+
+        </tr>
+        </thead>
+
+        <tbody class="table-hover">
+
+
+
+              {% for f in fellow_list %}
+{#        <li><a href="/fellow/{{ f.id }}/">#}
+{#            {{ f.id }}-{{ f.name}}#}
+{#        </a> </li>#}
+          <tr>
+            <td class="text-left">{{ f.id }}</td>
+            <td class="text-left">{{ f.name}}</td>
+            <td class="text-left">{{f.sex}}</td>
+            <td class="text-left">{{ f.home}}</td>
+              <td class="text-left">{{ f.department}}</td>
+            <td class="text-left">{{ f.major}}</td>
+            <td class="text-left">{{ f.tutor}}</td>
+        </tr>
+         {% endfor %}
+
+
+        </tbody>
+
+
+
+
+
+    </table>
+
+
+
+
+        <div class="">
+            {% include "_pagination.html" %}</div>
+        </div>
+
+
+
+{% else %}
+    <div class="alert alert-info"><h3>当前未能查询到任何老乡,请输入省、是</h3></div>
+
+{% endif %}
+
+
+
+
+
+
+{# The following renders the pagination html #}
+
+
+{% endblock %}

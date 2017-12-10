@@ -1,0 +1,207 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account %}
+
+{% block head_title %}{% trans "Confirm E-mail Address" %}{% endblock %}
+
+
+{#{% block content %}#}
+{#<h1>{% trans "Confirm E-mail Address" %}</h1>#}
+{##}
+{#{% if confirmation %}#}
+{##}
+{#{% user_display confirmation.email_address.user as user_display %}#}
+{##}
+{#<p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}</p>#}
+{##}
+{#<form method="post" action="{% url 'account_confirm_email' confirmation.key %}">#}
+{#{% csrf_token %}#}
+{#    <button type="submit">{% trans 'Confirm' %}</button>#}
+{#</form>#}
+{##}
+{#{% else %}#}
+{##}
+{#{% url 'account_email' as email_url %}#}
+{##}
+{#<p>{% blocktrans %}This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.{% endblocktrans %}</p>#}
+{##}
+{#{% endif %}#}
+{##}
+{#{% endblock %}#}
+
+
+
+
+
+
+
+
+
+
+
+{% block content %}
+
+
+    <center>
+<h1>{% trans "Confirm E-mail Address" %}</h1>
+
+
+</center>
+{#<form method="post" action="{% url 'account_logout' %}">#}
+{#  {% csrf_token %}#}
+{#  {% if redirect_field_value %}#}
+{#  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>#}
+{#  {% endif %}#}
+{#  <button type="submit">{% trans 'Sign Out' %}</button>#}
+{#</form>#}
+
+
+
+
+<div class="container">
+
+    <div id="loginbox" class="mainbox">
+
+{#        <div class="row">#}
+{#            <div class="iconmelon">#}
+{#              <svg viewBox="0 0 32 32">#}
+{#                <g filter="">#}
+{#                  <use xlink:href="#git"></use>#}
+{#                </g>#}
+{#              </svg>#}
+{#            </div>#}
+{#        </div>#}
+
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <div class="panel-title text-center">下一秒,遇见你</div>
+                <div class="panel-title text-center">Meet You at the Next Second</div>
+            </div>
+
+            <div class="panel-body" >
+
+
+
+
+
+
+                  {% if confirmation %}
+
+                    {% user_display confirmation.email_address.user as user_display %}
+
+                    <p>{% blocktrans with confirmation.email_address.email as email %}Please confirm that <a href="mailto:{{ email }}">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}</p>
+
+                    <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+                    {% csrf_token %}
+                        <button type="submit">{% trans 'Confirm' %}</button>
+                    </form>
+
+                    {% else %}
+
+                    {% url 'account_email' as email_url %}
+
+                    <p>{% blocktrans %}This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.{% endblocktrans %}</p>
+
+                    {% endif %}
+
+{#                <form method="post" action=".?next={{ redirect_to }}">#}
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<style>
+
+
+    body {
+    background-color: white;
+}
+
+#loginbox {
+    margin-top: 30px;
+}
+
+#loginbox > div:first-child {
+    padding-bottom: 10px;
+}
+
+.iconmelon {
+    display: block;
+    margin: auto;
+}
+
+#form > div {
+    margin-bottom: 25px;
+}
+
+#form > div:last-child {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.panel {
+    background-color: transparent;
+}
+
+.panel-body {
+    padding-top: 30px;
+    background-color: rgba(2555,255,255,.3);
+}
+
+#particles {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: -2;
+}
+
+.iconmelon,
+.im {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: block;
+  fill: #525151;
+}
+
+.iconmelon:after,
+.im:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

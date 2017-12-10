@@ -1,0 +1,15 @@
+    def kthLargestElement(self, k, A):
+       
+        def qsort(A):
+            if len(A)== 1 or len(A)==0:
+                return A
+            else:
+            #partition
+                piviot =  A[0]
+                L_A = [x for x in A[1:] if x<= piviot]
+
+                R_A = [y for y in A[1:] if y> piviot]
+                
+                return qsort(L_A) + [piviot] + qsort(R_A)
+       
+        return qsort(A)[k-1]

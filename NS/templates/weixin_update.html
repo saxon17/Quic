@@ -1,0 +1,536 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+
+      
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="robots" content="NONE,NOARCHIVE" />
+      
+
+      <title>User Detail Wei Xin – Django REST framework</title>
+
+      
+        
+          <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/bootstrap.min.css"/>
+          <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/bootstrap-tweaks.css"/>
+        
+
+        <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/prettify.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/rest_framework/css/default.css"/>
+      
+
+    
+  </head>
+
+  
+  <body class="">
+
+
+
+
+    <div class="wrapper">
+      
+        <div class="navbar navbar-static-top navbar-inverse">
+          <div class="container">
+            <span>
+              
+                <a class='navbar-brand' rel="nofollow" href='http://www.django-rest-framework.org'>
+                    Django REST framework
+                </a>
+              
+            </span>
+            <ul class="nav navbar-nav pull-right">
+              
+                
+                  <li class="navbar-text">saxon17</li>
+                
+              
+            </ul>
+          </div>
+        </div>
+      
+
+      <div class="container">
+        
+          <ul class="breadcrumb">
+            
+              
+                <li class="active"><a href="/weixin_api/update/{{ UserID }}">User Detail Wei Xin</a></li>
+              
+            
+          </ul>
+        
+
+        <!-- Content -->
+        <div id="content">
+
+          
+
+           <h1>Hi,{{ UserID }}</h1>
+            <form class="button-form" action="/weixin_api/update/{{ UserID }}" data-method="OPTIONS">
+              <button class="btn btn-primary js-tooltip" title="Make an OPTIONS request on the User Detail Wei Xin resource">OPTIONS</button>
+            </form>
+          
+
+          
+
+          
+
+            <div class="content-main">
+              <div class="page-header">
+                <h1>User Detail Wei Xin</h1>
+              </div>
+              <div style="float:left">
+                
+                  
+                
+              </div>
+
+              
+
+              <div class="request-info" style="clear: both" >
+                <pre class="prettyprint"><b>GET</b> /weixin_api/update/{{ UserID }}</pre>
+              </div>
+
+              <div class="response-info">
+                <pre class="prettyprint"><span class="meta nocode"><b>HTTP 405 Method Not Allowed</b>
+<b>Allow:</b> <span class="lit">PUT, PATCH, OPTIONS</span>
+<b>Content-Type:</b> <span class="lit">application/json</span>
+<b>Vary:</b> <span class="lit">Accept</span>
+
+</span>{
+    &quot;detail&quot;: &quot;方法 “GET” 不被允许。&quot;
+}</pre>
+              </div>
+            </div>
+
+            
+              
+
+              
+                <div class="tabbable">
+                  
+                    <ul class="nav nav-tabs form-switcher">
+                      <li>
+                        <a name='html-tab' href="#put-object-form" data-toggle="tab">HTML form</a>
+                      </li>
+                      <li>
+                        <a  name='raw-tab' href="#put-generic-content-form" data-toggle="tab">Raw data</a>
+                      </li>
+                    </ul>
+                  
+
+                  <div class="well tab-content">
+                    
+                      <div class="tab-pane" id="put-object-form">
+                        <form action="/weixin_api/update/{{ UserID }}" data-method="PUT" enctype="multipart/form-data" class="form-horizontal" novalidate>
+                          <fieldset>
+                            
+
+  
+    
+
+<div class="form-group">
+  
+    <label class="col-sm-2 control-label ">
+      Sex
+    </label>
+  
+
+  <div class="col-sm-10">
+    <select class="form-control" name="sex">
+      
+        <option value="" selected>--------</option>
+      
+      
+          
+            <option value="M"  >男生</option>
+          
+      
+          
+            <option value="F"  >女生</option>
+          
+      
+    </select>
+
+    
+
+    
+  </div>
+</div>
+
+  
+
+  
+    
+
+<div class="form-group">
+  
+    <label class="col-sm-2 control-label ">
+      Xingzuo
+    </label>
+  
+
+  <div class="col-sm-10">
+    <select class="form-control" name="xingzuo">
+      
+        <option value="" selected>--------</option>
+      
+      
+          
+            <option value="Vir"  >处女座</option>
+          
+      
+          
+            <option value="Agr"  >宝瓶座</option>
+          
+      
+          
+            <option value="Ari"  >白羊座</option>
+          
+      
+          
+            <option value="Cnc"  >巨蟹座</option>
+          
+      
+          
+            <option value="Cap"  >摩羯座</option>
+          
+      
+          
+            <option value="Gem"  >双子座</option>
+          
+      
+          
+            <option value="Leo"  >狮子座</option>
+          
+      
+          
+            <option value="Lib"  >天秤座</option>
+          
+      
+          
+            <option value="Psc"  >双鱼座</option>
+          
+      
+          
+            <option value="Sco"  >天蝎座</option>
+          
+      
+          
+            <option value="Tau"  >金牛座</option>
+          
+      
+          
+            <option value="Sgr"  >射手座</option>
+          
+      
+    </select>
+
+    
+
+    
+  </div>
+</div>
+
+  
+
+  
+    
+
+<div class="form-group">
+  
+    <label class="col-sm-2 control-label ">
+      Grade
+    </label>
+  
+
+  <div class="col-sm-10">
+    <select class="form-control" name="grade">
+      
+        <option value="" selected>--------</option>
+      
+      
+          
+            <option value="D1"  >大一</option>
+          
+      
+          
+            <option value="D2"  >大二</option>
+          
+      
+          
+            <option value="D3"  >大三</option>
+          
+      
+          
+            <option value="D4"  >大四</option>
+          
+      
+          
+            <option value="Y1"  >研一</option>
+          
+      
+          
+            <option value="Y2"  >研二</option>
+          
+      
+          
+            <option value="Y3"  >研三</option>
+          
+      
+          
+            <option value="B1"  >博一</option>
+          
+      
+          
+            <option value="B2"  >博二</option>
+          
+      
+          
+            <option value="B3"  >博三</option>
+          
+      
+    </select>
+
+    
+
+    
+  </div>
+</div>
+
+  
+
+  
+    <div class="form-group ">
+  
+    <label class="col-sm-2 control-label ">
+      Name
+    </label>
+  
+
+  <div class="col-sm-10">
+    <input name="name" class="form-control" type="text"  >
+
+    
+
+    
+  </div>
+</div>
+
+  
+
+  
+    <div class="form-group ">
+  
+    <label class="col-sm-2 control-label ">
+      College
+    </label>
+  
+
+  <div class="col-sm-10">
+    <input name="college" class="form-control" type="text"  >
+
+    
+
+    
+  </div>
+</div>
+
+  
+
+  
+    <div class="form-group ">
+  
+    <label class="col-sm-2 control-label ">
+      Major
+    </label>
+  
+
+  <div class="col-sm-10">
+    <input name="major" class="form-control" type="text"  >
+
+    
+
+    
+  </div>
+</div>
+
+  
+
+  
+    <div class="form-group ">
+  
+    <label class="col-sm-2 control-label ">
+      Hometown
+    </label>
+  
+
+  <div class="col-sm-10">
+    <input name="hometown" class="form-control" type="text"  >
+
+    
+
+    
+  </div>
+</div>
+
+  
+
+  
+    <div class="form-group ">
+  
+    <label class="col-sm-2 control-label ">
+      Hobbie
+    </label>
+  
+
+  <div class="col-sm-10">
+    <input name="hobbie" class="form-control" type="text"  >
+
+    
+
+    
+  </div>
+</div>
+
+  
+
+  
+    <div class="form-group ">
+  
+    <label class="col-sm-2 control-label ">
+      We chat
+    </label>
+  
+
+  <div class="col-sm-10">
+    <input name="we_chat" class="form-control" type="text"  >
+
+    
+
+    
+  </div>
+</div>
+
+  
+
+  
+    <div class="form-group ">
+  
+    <label class="col-sm-2 control-label ">
+      Head pic
+    </label>
+  
+
+  <div class="col-sm-10">
+    <input name="head_pic"  type="file"  >
+
+    
+
+    
+  </div>
+</div>
+
+  
+
+
+                            <div class="form-actions">
+                              <button class="btn btn-primary js-tooltip" title="Make a PUT request on the User Detail Wei Xin resource">PUT</button>
+                            </div>
+                          </fieldset>
+                        </form>
+                      </div>
+                    
+
+                    <div class="tab-pane" id="put-generic-content-form">
+                      
+                        <form action="/weixin_api/update/{{ UserID }}" data-method="PUT" class="form-horizontal">
+                          <fieldset>
+                            
+
+
+  <div class="form-group">
+    <label for="id__content_type" class="col-sm-2 control-label">Media type:</label>
+    <div class="col-sm-10">
+      <select data-override="content-type" id="id__content_type" name="_content_type" required class="form-control">
+<option value="application/json" selected="selected">application/json</option>
+<option value="application/x-www-form-urlencoded">application/x-www-form-urlencoded</option>
+<option value="multipart/form-data">multipart/form-data</option>
+</select>
+      <span class="help-block"></span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="id__content" class="col-sm-2 control-label">Content:</label>
+    <div class="col-sm-10">
+      <textarea cols="40" data-override="content" id="id__content" name="_content" rows="10" required class="form-control">
+{
+    &quot;sex&quot;: null,
+    &quot;xingzuo&quot;: null,
+    &quot;grade&quot;: null,
+    &quot;name&quot;: &quot;&quot;,
+    &quot;college&quot;: &quot;&quot;,
+    &quot;major&quot;: &quot;&quot;,
+    &quot;hometown&quot;: &quot;&quot;,
+    &quot;hobbie&quot;: &quot;&quot;,
+    &quot;we_chat&quot;: &quot;&quot;,
+    &quot;head_pic&quot;: null
+}</textarea>
+      <span class="help-block"></span>
+    </div>
+  </div>
+
+
+                            <div class="form-actions">
+                              
+                                <button class="btn btn-primary js-tooltip" title="Make a PUT request on the User Detail Wei Xin resource">PUT</button>
+                              
+                              
+                              <button data-method="PATCH" class="btn btn-primary js-tooltip" title="Make a PATCH request on the User Detail Wei Xin resource">PATCH</button>
+                                
+                            </div>
+                          </fieldset>
+                        </form>
+                      
+                    </div>
+                  </div>
+                </div>
+              
+            
+        </div><!-- /.content -->
+      </div><!-- /.container -->
+    </div><!-- ./wrapper -->
+
+    
+
+    
+      <script>
+        window.drf = {
+          csrfHeaderName: "X-CSRFTOKEN",
+          csrfCookieName: "csrftoken"
+        };
+      </script>
+      <script src="/static/rest_framework/js/jquery-1.12.4.min.js"></script>
+      <script src="/static/rest_framework/js/ajax-form.js"></script>
+      <script src="/static/rest_framework/js/csrf.js"></script>
+      <script src="/static/rest_framework/js/bootstrap.min.js"></script>
+      <script src="/static/rest_framework/js/prettify-min.js"></script>
+      <script src="/static/rest_framework/js/default.js"></script>
+      <script>
+        $(document).ready(function() {
+          $('form').ajaxForm();
+        });
+      </script>
+    
+
+  </body>
+  
+</html>

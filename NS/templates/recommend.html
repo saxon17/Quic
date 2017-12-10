@@ -1,0 +1,177 @@
+{%  extends 'base.html' %}
+{% load static %}
+{% block body%}
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <div id="recommandCard">
+    <div class="row">
+          <div class="clearfix about-inner">
+
+
+            <!-- about me description -->
+
+            <div class="col-sm-6 ">
+              <div class="person-img wow fadeIn animated" style="visibility: visible; animation-name: fadeIn;float:right;">
+                <img class="z-depth-1" src="{{ object.head_pic.url }}" alt="" style="max-width: 500px;">
+              </div>
+            </div>
+            <!-- about me image -->
+
+            <div class="col-sm-6 col-md-4">
+              <div class="person-info">
+
+                <h3 class="about-subtitle">Personal Information</h3>
+                  <h5><span>性别:</span> <strong>{{ object.get_sex_display}}</strong></h5>
+                <h5><span>姓名:</span> {{ object.name}}</h5>
+                <h5><span>年龄:</span> {{ object.age}}</h5>
+                <h5><span>学校:</span> {{ object.college }}</h5>
+                <h5><span>专业:</span> {{ object.major }}</h5>
+                  <h5><span>所在年级: </span> {{ object.get_grade_display}} </h5>
+
+
+                <h5><span>家乡:</span> {{ object.hometown }}</h5>
+                  <h5><span>爱好:</span> {{ object.hobbie }}</h5>
+                  <h5><span>星座: </span> {{ object.get_xingzuo_display}} </h5>
+
+{#                  <p><strong>星座: </strong> {{ object.get_xingzuo_display}} </p>#}
+              </div>
+
+
+
+{#              <div class="about-social">#}
+{#                <ul>#}
+                  {#<li>#}
+                    {#<a href="#" class="circle-shadow btn-floating waves-effect waves-light white"><i class="fa fa-facebook"></i></a>#}
+                  {#</li>#}
+{#                  <li>#}
+{#                    <a href="#" class="circle-shadow btn-floating waves-effect waves-light white"><i class="fa fa-arrow-left"></i></a>#}
+{#                  </li>#}
+{#                  <li id="like">#}
+{#                    <a href="#" class="circle-shadow btn-floating waves-effect waves-light white"><i class="fa fa-heart"></i></a>#}
+{#                   </li>#}
+{#                  <li id="unlike">#}
+{#                    <a href="#" class="circle-shadow btn-floating waves-effect waves-light white"><i class="fa fa-close"></i></a>#}
+{#                  </li>#}
+{#                  <li>#}
+{#                    <a href="#" class="circle-shadow btn-floating waves-effect waves-light white"><i class="fa fa-arrow-right"></i></a>#}
+{#                  </li>#}
+{#                </ul>#}
+{#              </div>#}
+
+
+
+            </div>
+            <!-- about me info -->
+
+          </div>
+        </div>
+      </div>
+
+
+<style type="text/css">
+    #unlike i
+    {
+        color: #1b6d85;
+    }
+    #like,#unlike
+    {  position: relative;
+    top: 30px;
+    }
+.about-subtitle {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    color: #00bcd4;
+}
+.person-img img {
+    border: 8px solid #fff;
+        /* -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); */
+    -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.person-info h5 {
+    border-bottom: 1px solid #eeeeee;
+    color: #727272;
+    font-size: 14px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+}
+
+
+.about-social ul li {
+display: inline-block;
+margin-right: 8px;
+}
+
+
+
+.circle-shadow
+{
+	 -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+-moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+
+
+
+
+.btn-floating {
+display: inline-block;
+color: #FFF;
+position: relative;
+z-index: 1;
+width: 37px;
+ height: 37px;
+line-height: 37px;
+padding: 0;
+background-color: floralwhite;
+-webkit-border-radius: 50%;
+-moz-border-radius: 50%;
+border-radius: 50%;
+background-clip: padding-box;
+-webkit-transition: 0.3s;
+-moz-transition: 0.3s;
+-o-transition: 0.3s;
+-ms-transition: 0.3s;
+transition: 0.3s;
+cursor: pointer;
+}
+
+
+.btn-floating i {
+width: inherit;
+display: inline-block;
+text-align: center;
+color: red;
+font-size: 1.6rem;
+line-height: 37px;
+-webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+-moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.waves-effect {
+position: relative;
+cursor: pointer;
+display: inline-block;
+overflow: hidden;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+-webkit-tap-highlight-color: transparent;
+z-index: 1;
+will-change: opacity, transform;
+-webkit-transition: all 0.3s ease-out;
+-moz-transition: all 0.3s ease-out;
+-o-transition: all 0.3s ease-out;
+-ms-transition: all 0.3s ease-out;
+transition: all 0.3s ease-out;
+}
+
+
+
+
+</style>
+{% endblock %}
+

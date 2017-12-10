@@ -1,0 +1,361 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+
+{#<h1>This is USERINFO PAGE</h1>#}
+
+
+{#    <P>{{ request.path[1:] }}</P>#}
+    <div class="row">
+    <div class="col-md-4">
+
+            <!--Panel-->
+            <div id="usercard" class="">
+
+              <div class="panel panel-default">
+                  <div class = "panel-heading">
+
+
+                    <strong>喜欢你的人</strong>
+                   </div>
+                    <div class="panel-body">
+
+
+                        <div class="table-responsive">
+                            <table class="table user-list">
+{#                                <thead>#}
+{#                                <tr>#}
+{#                                    <th><span>User</span></th>#}
+{#                                    <th><span>Created</span></th>#}
+{#                                    <th class="text-center"><span>Status</span></th>#}
+{#                                    <th><span>Email</span></th>#}
+{#                                    <th>&nbsp;</th>#}
+{#                                </tr>#}
+{#                                </thead>#}
+                                <tbody  id ="man-love-you-table">
+{#                                <tr>#}
+{#                                    <td><img src="http://bootdey.com/img/Content/user_1.jpg" alt="">#}
+{#                                    <td><a href="#" class="user-link">Full name 1</a></td>#}
+{#                                    <td class="text-center"><span class="label label-default">计算机</span></td>#}
+{#                                    <td>被喜欢20,00</td>#}
+{##}
+{#                                </tr>#}
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+                      </div><!--/panel-body-->
+                  </div><!--/panel-->
+
+
+
+            </div>
+            <!--/.Panel-->
+
+        <div id="usercard" class="">
+
+              <div class="panel panel-default">
+                   <div class = "panel-heading">
+                    <strong>你喜欢过的人</strong>
+                   </div>
+                    <div class="panel-body">
+
+
+                        <div class="table-responsive">
+                            <table class="table user-list">
+{#                                <thead>#}
+{#                                <tr>#}
+{#                                    <th><span>User</span></th>#}
+{#                                    <th><span>Created</span></th>#}
+{#                                    <th class="text-center"><span>Status</span></th>#}
+{#                                    <th><span>Email</span></th>#}
+{#                                    <th>&nbsp;</th>#}
+{#                                </tr>#}
+{#                                </thead>#}
+                                <tbody  id ="man-you-love-table">
+{#                                <tr>#}
+{#                                    <td><img src="http://bootdey.com/img/Content/user_1.jpg" alt="">#}
+{#                                    <td><a href="#" class="user-link">Full name 1</a></td>#}
+{#                                    <td class="text-center"><span class="label label-default">计算机</span></td>#}
+{#                                    <td>被喜欢20,00</td>#}
+{##}
+{#                                </tr>#}
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+                      </div><!--/panel-body-->
+                  </div><!--/panel-->
+
+
+
+            </div>
+
+    </div>
+    <div class="container col-md-8">
+          <div class="row">
+            <div id="usercard" class="col-md-6">
+
+              <div class="panel panel-default">
+                    <div class="panel-body">
+
+                            <div class="row">
+                                <div  class="col-xs-12 col-sm-8">
+                                    <h2><strong>{{ object.name }}</strong></h2>
+                                    <p><strong>性别: </strong> {{ object.get_sex_display}} </p>
+                                    <p><strong>专业: </strong> {{ object.major }} </p>
+                                    <p><strong>所在年级: </strong> {{ object.get_grade_display}}</p>
+                                    <p><strong>年龄: </strong> {{ object.age }}</p>
+                                    <p><strong>家乡: </strong> {{ object.hometown }}</p>
+                                    <p><strong>星座: </strong> {{ object.get_xingzuo_display}}</p>
+
+
+
+{#                                    <p><strong>爱好: </strong>{{ object.hobbie}}</p>#}
+{#                                        <span class="label label-info tags">html5</span>#}
+{#                                        <span class="label label-info tags">css3</span>#}
+{#                                        <span class="label label-info tags">jquery</span>#}
+{#                                        <span class="label label-info tags">bootstrap3</span>#}
+{#                                    </p>#}
+
+
+                                    <p><strong>微信:</strong>{{ object.we_chat }}</p>
+                                </div><!--/col-->
+                                <div class="col-xs-12 col-sm-4 text-center">
+        {#http://api.randomuser.me/portraits/men/49.jpg#}
+        {#                                头像#}
+                                        <img src="{{ object.head_pic.url }}" alt="" class="center-block img-circle img-responsive">
+                                        <ul class="list-inline ratings text-center" title="Ratings">
+                                          <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                          <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                          <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                          <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                          <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                        </ul>
+                                </div><!--/col-->
+
+                                <div class="col-xs-12 col-sm-4 text-center">
+                                    <h2><strong id="user_beliked_count"> 0</strong></h2>
+                                    <p><small>被喜欢次数</small></p>
+        {#                             <a href="{{ path('userinfo_edit',{ 'id': user.id }) }}" class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> 修改资料 </a>#}
+                                    <a href=" {% url 'userdetail-update' user.id %}"><button class="btn btn-success">修改资料</button></a>
+                                </div><!--/col-->
+                                {#<div class="col-xs-12 col-sm-4">#}
+                                    {#<h2><strong>245</strong></h2>#}
+                                    {#<p><small>Following</small></p>#}
+                                    {#<button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile </button>#}
+                                {#</div><!--/col-->#}
+                                {#<div class="col-xs-12 col-sm-4">#}
+                                    {#<h2><strong>43</strong></h2>#}
+                                    {#<p><small>Snippets</small></p>#}
+                                    {#<button type="button" class="btn btn-primary btn-block"><span class="fa fa-gear"></span> Options </button>#}
+                                {#</div><!--/col-->#}
+                            </div><!--/row-->
+
+                      </div><!--/panel-body-->
+                  </div><!--/panel-->
+
+
+
+            </div>
+
+          </div>
+
+
+
+         <div class="row">
+            <div id="usercard" class="col-md-6">
+
+              <div class="panel panel-default">
+
+                  <div class = "panel-heading">
+                    <strong>互相喜欢</strong>
+                   </div>
+
+
+                    <div class="panel-body">
+
+
+                        <div class="table-responsive">
+                            <table class="table user-list">
+{#                                <thead>#}
+{#                                <tr>#}
+{#                                    <th><span>User</span></th>#}
+{#                                    <th><span>Created</span></th>#}
+{#                                    <th class="text-center"><span>Status</span></th>#}
+{#                                    <th><span>Email</span></th>#}
+{#                                    <th>&nbsp;</th>#}
+{#                                </tr>#}
+{#                                </thead>#}
+                                <tbody  id ="man-matched">
+{#                                <tr>#}
+{#                                    <td><img src="http://bootdey.com/img/Content/user_1.jpg" alt="">#}
+{#                                    <td><a href="#" class="user-link">Full name 1</a></td>#}
+{#                                    <td class="text-center"><span class="label label-default">计算机</span></td>#}
+{#                                    <td>被喜欢20,00</td>#}
+{##}
+{#                                </tr>#}
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+                      </div><!--/panel-body-->
+                  </div><!--/panel-->
+
+
+
+            </div>
+
+          </div>
+
+
+
+
+
+
+
+
+    </div>
+    </div>
+
+
+
+
+
+    <script>
+
+
+
+      $.getJSON( "/jq-service-api/getWhoLoveUser", function(data, textStatus, jqXHR){
+
+                var json_length = 0;
+                for(var i in data){
+
+
+                    var table_html;
+                    table_html += '<tr>';
+                    table_html += '<td><img class="left-panel-head-pic " src="'+data[i][3]+'  " alt="">';
+                    console.log( data[i] );
+                    table_html += '<td><a href="#" class="user-link">' +data[i][0]+'</a></td>';
+{#                                    <td><img src="http://bootdey.com/img/Content/user_1.jpg" alt="">#}
+{#                                    <td><a href="#" class="user-link">Full name 1</a></td>#}
+                    table_html +='<td class="text-center"><span class="label label-default">' + data[i][1]+ '</span></td>';
+                    table_html +='<td>' + data[i][2]+'</td>';
+                    table_html += '<tr>';
+
+                    json_length += 1;
+
+                }
+          console.log(table_html);
+{#          var count_html = '<h2><strong>'+ json_length +' </strong></h2>';#}
+{#          alert(json_length);#}
+          $("#man-love-you-table").append(table_html);
+          $("#user_beliked_count").html(json_length);
+
+      } );
+
+
+
+
+
+
+
+          $.getJSON( "/jq-service-api/getUserLoveDetail", function(data, textStatus, jqXHR){
+
+                for(var i in data){
+                    var table_html;
+                    table_html += '<tr>';
+                    table_html += '<td><img class="left-panel-head-pic " src="'+data[i][3]+'  " alt="">';
+                    console.log( data[i] );
+                    table_html += '<td><a href="#" class="user-link">' +data[i][0]+'</a></td>';
+{#                                    <td><img src="http://bootdey.com/img/Content/user_1.jpg" alt="">#}
+{#                                    <td><a href="#" class="user-link">Full name 1</a></td>#}
+                    table_html +='<td class="text-center"><span class="label label-default">' + data[i][1]+ '</span></td>';
+                    table_html +='<td>' + data[i][2]+'</td>';
+                    table_html += '<tr>';
+
+
+
+                }
+          console.log(table_html);
+          $("#man-you-love-table").append(table_html);
+
+      } );
+
+
+
+
+
+
+        $.getJSON( "/jq-service-api/getMatched", function(data, textStatus, jqXHR){
+
+                for(var i in data){
+                    var table_html;
+                    table_html += '<tr>';
+                    table_html += '<td><img class="left-panel-head-pic " src="'+data[i][2]+'  " alt="">';
+                    console.log( data[i] );
+                    table_html += '<td><a href="#" class="user-link">' +data[i][0]+'</a></td>';
+{#                                    <td><img src="http://bootdey.com/img/Content/user_1.jpg" alt="">#}
+{#                                    <td><a href="#" class="user-link">Full name 1</a></td>#}
+                    table_html +='<td class="text-center">' +
+                           ' <i class="fa fa-weixin" aria-hidden="true"></i>' +
+                            '<span class="label label-success">' + data[i][1]+
+                            '</span>' +
+                            '</td>';
+{#                    table_html +='<td>' + data[i][2]+'</td>';#}
+                    table_html += '<tr>';
+
+
+
+                }
+          console.log(table_html);
+          $("#man-matched").append(table_html);
+
+      } );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+    <style>
+    #usercard
+    {
+        margin-left: 150px;
+        margin-top: 50px;
+    }
+    .left-panel-head-pic
+    {
+        height: 30px;
+        width: 30px;
+    }
+
+</style>
+
+{%  endblock %}

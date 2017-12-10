@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+
+{% block title %} Register{% endblock %}
+
+
+
+{% block body %}
+{#<h3> Create New Account</h3>#}
+
+
+{#<div class = "container-fluid">#}
+{#    <div class="row">#}
+{#        <div class="col-sm-12 col-md-7">#}
+{#            <div class="panel panel-default">#}
+{#                <div class="panel-body">#}
+{##}
+{##}
+{#                    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">#}
+{#                        {%  csrf_token %}#}
+{##}
+{#                        {%  include 'form-template.html' %}#}
+{##}
+{#                        <div class=" form-group">#}
+{#                            <div class="col-sm-offset-2 col-sm-10">#}
+{##}
+{##}
+{#                                <button type="submit" class="btn btn-success">#}
+{#                                    Submit#}
+{#                                </button>#}
+{##}
+{#                            </div>#}
+{##}
+{##}
+{#                        </div>#}
+{##}
+{##}
+{#                    </form>#}
+{##}
+{#                    #}
+{##}
+{##}
+{#                </div>#}
+{##}
+{##}
+{##}
+{#            </div>#}
+{##}
+{##}
+{#        </div>#}
+{##}
+{##}
+{#    </div>#}
+{##}
+{##}
+{##}
+{##}
+{#</div>#}
+{#    #}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#    ----------------#}
+
+
+    <div class="container">
+
+    <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+
+        <div class="row">
+            <div class="iconmelon">
+              <svg viewBox="0 0 32 32">
+                <g filter="">
+                  <use xlink:href="#git"></use>
+                </g>
+              </svg>
+            </div>
+        </div>
+
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+{#                <center><h1>注册</h1></center>#}
+                <div class="panel-title text-center"><h1>第一步:成为NS会员</h1></div>
+{#                <div class="panel-title text-center">Meet You at the Next Second</div>#}
+            </div>
+
+            <div class="panel-body" >
+
+
+{#                <form method="post" action=".?next={{ redirect_to }}">#}
+{##}
+{#                <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" method="POST" action=".?next={{ redirect_to }}">#}
+{#                    {%  csrf_token %}#}
+{#                    <div class="input-group">#}
+{#                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>#}
+{#                        <input id="user" type="text" class="form-control" name="username" value="" placeholder="User">#}
+{#                    </div>#}
+{##}
+{#                    <div class="input-group">#}
+{#                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>#}
+{#                        <input id="password" type="password" class="form-control" name="password" placeholder="Password">#}
+{#                    </div>#}
+{##}
+{#                    <div class="form-group">#}
+{#                        <!-- Button -->#}
+{#                        <div class="col-sm-12 controls">#}
+{#                            <a href="/password_reset"> 忘记密码</a>#}
+{#                            <button type="submit" href="#" class="btn btn-primary pull-right"><i class="glyphicon glyphicon-log-in"></i> Log in</button>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                </form>#}
+
+
+
+
+      <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                        {%  csrf_token %}
+
+                        {%  include 'form-template.html' %}
+
+                        <div class=" form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+
+
+                                <button type="submit" class="btn btn-success">
+                                    Submit
+                                </button>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+
+
+    body {
+    background-color: white;
+}
+
+#loginbox {
+    margin-top: 30px;
+}
+
+#loginbox > div:first-child {
+    padding-bottom: 10px;
+}
+
+.iconmelon {
+    display: block;
+    margin: auto;
+}
+
+#form > div {
+    margin-bottom: 25px;
+}
+
+#form > div:last-child {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.panel {
+    background-color: transparent;
+}
+
+.panel-body {
+    padding-top: 30px;
+    background-color: rgba(2555,255,255,.3);
+}
+
+#particles {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: -2;
+}
+
+.iconmelon,
+.im {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: block;
+  fill: #525151;
+}
+
+.iconmelon:after,
+.im:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+
+{% endblock %}
+
+
